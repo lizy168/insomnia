@@ -75,6 +75,7 @@ export class SpecPage extends BasePage {
   private readonly NEW_TEST_BUTTON = 'button[aria-label="New test"]';
   private readonly NO_LINT_PROBLEMS = "No lint problems";
   private readonly PANE_ONE = '[data-panel-id="spec-pane-one"]';
+  private readonly PANE_CONTENT = '[data-panel-id="spec-content"]';
   private readonly PANE_TWO = '[data-panel-id="pane-two"]';
   private readonly PREVIEW_TOGGLE = '[data-testid="preview-toggle"]';
   private readonly REMOVE_RULESET_BUTTON =
@@ -236,7 +237,7 @@ export class SpecPage extends BasePage {
    */
   async getOpenApiVersion(): Promise<string> {
     const label = this.page
-      .locator(this.PANE_ONE)
+      .locator(this.PANE_CONTENT)
       .first()
       .getByText(/OpenAPI \d/)
       .first();
